@@ -1,0 +1,127 @@
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.01em;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    position: absolute;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    transition: color var(--transition);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.input {
+    width: 100%;
+    padding: 13px 14px 13px 44px;
+    font-size: 0.925rem;
+    font-family: var(--font);
+    color: var(--text-primary);
+    background: var(--surface-hover);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    outline: none;
+    transition: all var(--transition);
+}
+
+.input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.input:hover {
+    border-color: #c7c9d8;
+}
+
+.input:focus {
+    border-color: var(--border-focus);
+    background: var(--surface);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.wrapper:has(.input:focus) .icon {
+    color: var(--primary);
+}
+
+/* Toggle */
+.toggle {
+    position: absolute;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    border-radius: 8px;
+    transition: all var(--transition);
+}
+
+.toggle:hover {
+    color: var(--text-secondary);
+    background: var(--primary-light);
+}
+
+.toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Error state */
+.error .input {
+    border-color: var(--error);
+    background: var(--error-bg);
+}
+
+.error .input:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.error .icon {
+    color: var(--error);
+}
+
+.errorMsg {
+    font-size: 0.75rem;
+    color: var(--error);
+    min-height: 0;
+    overflow: hidden;
+    transition: all var(--transition);
+    opacity: 0;
+    transform: translateY(-4px);
+}
+
+.error .errorMsg {
+    opacity: 1;
+    transform: translateY(0);
+    min-height: 16px;
+}
+
+/* Success state */
+.success .input {
+    border-color: var(--success);
+}
+
+.success .icon {
+    color: var(--success);
+}
